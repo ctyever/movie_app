@@ -1,14 +1,16 @@
 import React from 'react'
-import { Movie } from 'templates/index'
+import { Home, Detail } from 'templates/index'
+import { Redirect, Route } from "react-router-dom"
 import { BrowserRouter as Router } from 'react-router-dom'
 
 
 const App = () => {
-
   
   return (<div>
     <Router>
-      <Movie/>
+      <Route exact path='/home' component={Home} />
+      <Redirect exact from={'/'} to={'/home'} />
+      <Route exact path='/movie/:id' component={Detail} />
     </Router>
   </div>
     
